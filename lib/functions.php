@@ -9,10 +9,7 @@
  */
 function random_background($totallyrandom=null) {
 
-    // define selection
-    $colours[] = '424242';
-    $colours[] = '7CA779';
-    $colours[] = 'FFFFFF';
+    $colours = array('424242', '7CA779', 'FFFFFF');
 
     return $colours[rand(1, count($colours))-1];
 }
