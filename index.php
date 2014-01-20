@@ -44,8 +44,8 @@ include 'lib/functions.php';
         <div id="stage">
             <div id="video">
                 <video width="100%" height="100%" autoplay>
-                  <source src="/video/cityrunningexp.mp4" type="video/mp4"/>
-                  <source src="/video/cityrunningexp.ogg" type="video/ogg"/>
+                  <source src="video/cityrunningexp.mp4" type="video/mp4"/>
+                  <source src="video/cityrunningexp.ogg" type="video/ogg"/>
                       Get a better browser.
                 </video>
                 <div id="videocover">
