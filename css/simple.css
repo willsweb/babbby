@@ -55,18 +55,18 @@
     padding:0;
 }
 
-#menu li {
+#menu span {
     float:left;
     position:relative;
     margin:1px 1px 0 0;
     color: black;
 }
 
-#menu li.sub {
+#menu span.sub {
     background:#f80;
 }
 
-#menu li,#menu li a {
+#menu span,#menu span a {
     display:block;
     font-family:arial, sans-serif;
     font-size:11px;
@@ -78,13 +78,13 @@
     font-weight:700;
 }
 
-#menu li.open ul {
+#menu span.open span {
     left:0;
     top:24px;
     background:url(transparent.gif);
 }
 
-#menu li:hover, #menu li a:hover, #menu li.open {
+#menu span:hover, #menu span a:hover, #menu span.open {
 
 }
 
