@@ -1,78 +1,60 @@
 <?php
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 include 'lib/functions.php';
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <link href="css/simple.css" rel="stylesheet" type="text/css"/>
     <script type='text/javascript' src='js/jquery-1.11.0.js'></script>
-    <script>
-    $(document).ready(function(){
-      $("button").click(function(){
-        $("#div1").load("demo_test.txt");
-      });
-    });
-    </script>
-
+    <script type='text/javascript' src='js/simple.js'></script>
+    <link href="css/simple.css" rel="stylesheet" type="text/css"/>
     <title>Baby</title>
-    <style>body {background-color: #<?php echo random_background(); ?>;}</style>
+    <style>body {background-color: #<?php echo random_colour(); ?>;}</style>
 </head>
-
 <body>
 
     <div id="menu">
-
-        <span id="events">
-            <!--
-            <ul>
-                <li><a href="http://www.supernormalfestival.co.uk" target="_blank">Supernormal Festival 9-11 August 2013 date t.b.c</a></li>
-            </ul>
-            -->
-        </span>
-
-        <span id="contact">
-            <!--
-            <ul>
-                <li><a href="mailto:baby@babbby.com">baby@babbby.com</a></li>
-            </ul>
-            -->
-        </span>
-
-        <span id="press">
-            <!--
-            <ul>
-                <li><a href="javascript:downloadPresspack;">(42MB .zip)</a></li>
-            </ul>
-            -->
-        </span>
-
-        <span id="products">
-            <!--
-            <ul>
-                <li><a href="javascript:load('1');">Near Wanstonia (2012)</a></li>
-                <li><a href="javascript:load('1');">Sea Shells Listening (2009)</a></li>
-                <li><a href="javascript:load('1');">Vole Radio 1 EP (2006)</a></li>
-            </ul>
-            -->
-        </span>
-
+        <span id="events" class="dynamic"></span>
+        <span id="contact" class="dynamic"></span>
+        <span id="press" class="dynamic"></span>
+        <span id="products" class="dynamic"></span>
     </div>
 
-    <div id="content">
-        <div id="stage">
-            <div id="video">
-                <video width="100%" height="100%" autoplay>
-                  <source src="video/marlbocatmarytest.mp4" type="video/mp4"/>
-                  
-                      Get a better browser.
-                </video>
-                <div id="videocover">
-                    <img src="img/mask.png"/>
-                </div>
-            </div>
+    <div id='content'>
+        <div id='stage'>
+            <div id='canvas'></div>
+            <button id="video" class="dynamic">
+                <img src="img/video.png"  />
+            </button>
+            <button id="audio"  class="dynamic">
+                <img src="img/audio.png"  />
+            </button>
         </div>
     </div>
+
+    <div id="scroller">
+        <span id="static-text">This text won't move</span>
+        <div class="scrollingtext">
+            <span class="review">
+                <span class="message">
+                    <a href="#">'Scrolling Text'</a>
+                </span> -
+                <span class="forename">Extra info</span>,
+                <span class="location">Location</span>
+            </span>
+            <span class="review">
+                <span class="message">
+                    <a href="#">'More Scrolling Text'</a>
+                </span> -
+                <span class="forename">More Extra info</span>,
+                <span class="location">Another Location</span>
+            </span>
+        </div>
+    </div>  
 
 </body>
 </html>

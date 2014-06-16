@@ -88,7 +88,7 @@
 
 }
 
-/*********************VIDEO***********************/
+/*********************CANVAS***********************/
 
 #stage {
     background-image: url("../img/radio_small.png");
@@ -98,10 +98,10 @@
     position: relative;
     top: 75px;
     width: 586px;
-    z-index: -1;
+    // z-index: -1; // was breaking the buttons, not sure why its there?
 }
 
-#video {
+#canvas {
     left: 124px;
     position: absolute;
     top: 170px;
@@ -109,7 +109,7 @@
     height:240px;
 }
 
-#videocover {
+#canvascover {
     position:absolute;
     top:0px;
     left:0;
@@ -118,7 +118,68 @@
     z-index:50;
 }
 
-#videocover img {
+#canvascover img {
     width:100%;
     height:100%;
+}
+
+
+/*********************AUDIO VIDEO BUTTONS***********************/
+
+#video {
+    left: 324px;
+    position: absolute;
+    top: 420px;
+    cursor:pointer;
+        background: none repeat scroll 0 0 #FFFFFF;
+    border: medium none;
+}
+
+#audio {
+    left: 224px;
+    position: absolute;
+    top: 420px;
+        background: none repeat scroll 0 0 #FFFFFF;
+    border: medium none;
+}
+
+/*********************TESTING***********************/
+
+#scroller {
+    background-color: #00b6ff;
+    color: #ffffff;
+    font-size: 14px;
+    height: 28px !important;
+    line-height:28px;
+    overflow: hidden;
+    position: relative;
+    width: 1005;
+    padding-top: 1px;
+    position: relative;
+}
+.scrollingtext {
+    color: #ffffff;
+    white-space:nowrap;
+    position:absolute;
+    font-size: 14px;
+    font-style: oblique;
+}
+.scrollingtext a:link, .scrollingtext a:visited {
+    color: #ffffff;
+    font-size: 14px;
+}
+.scrollingtext a:visited {
+    text-decoration:none;
+}
+
+.review {
+    padding-right: 50px;
+}
+
+#static-text {
+    position: absolute;
+    padding: 0 10px;
+    background-color: #00b6ff;
+    z-index: 99999;
+    font-weight: bold;
 }
