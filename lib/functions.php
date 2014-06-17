@@ -40,17 +40,17 @@ function random_file($dir) {
             }
             closedir($dh);
         }
+
+        $keys = array_keys($files);
+        shuffle($keys);
+        foreach($keys as $key) {
+            $new[$key] = $files[$key];
+        }
+
+        // todo: return the whole array?
+
+        return $dir . array_values($new)[0];
     }
-
-    $keys = array_keys($files);
-    shuffle($keys);
-    foreach($keys as $key) {
-        $new[$key] = $files[$key];
-    }
-
-    // todo: return the whole array?
-
-    return $dir . array_values($new)[0];
 }
 
 /**
