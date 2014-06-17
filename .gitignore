@@ -1,5 +1,5 @@
 nbproject/
-video/
-audio/
+video/*
+audio/*
 robots.txt
 
