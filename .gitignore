@@ -1,5 +1,7 @@
 nbproject/
-video/
-audio/
+video/*
+audio/*
+!video/.keep
+!audio/.keep
 robots.txt
 
