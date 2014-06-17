@@ -3,21 +3,22 @@
 /**
  * Returns random hex colour code
  *
- * @param array $election predefined selection of colours to choose from
+ * @param array $selection predefined selection of colours to choose from
  * @return string
  */
-function random_colour($election=null) {
+function random_colour($selection=array()) {
 
-    if ($election) {
-        return $election[rand(1, count($election))-1];
+    if ($selection) {
+        return $selection[rand(1, count($selection))-1];
     }
 
     $colour = '';
+    $levels = array(255, 255, 255);
     for ($i = 0; $i < 3; $i++) {
-        $colour .= str_pad(dechex(mt_rand(0,255)), 2, '0', STR_PAD_LEFT);
+        $colour .= str_pad(dechex(mt_rand(0, $levels[$i])), 2, '0', STR_PAD_LEFT);
     }
-    
-    return $colour;  
+
+    return $colour;
 }
 
 /**
