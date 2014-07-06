@@ -1,14 +1,70 @@
+
+function setCookie(key, value) {
+    var expires = new Date();
+    expires.setTime(expires.getTime() + (1 * 24 * 60 * 60 * 1000));
+    document.cookie = key + '=' + value + ';expires=' + expires.toUTCString();
+}
+
+function getCookie(key) {
+    var keyValue = document.cookie.match('(^|;) ?' + key + '=([^;]*)(;|$)');
+    return keyValue ? keyValue[2] : null;
+}
+
 $(document).ready(function(){
 
     $('.dynamic').click(function(event){
-        $("#canvas").fadeOut(500, function () {
-            $("#canvas").load(event.target.id+'.php', {limit: 25}, function(){
-                $("#canvas").fadeIn();
+
+        var id = $(this).attr('id');
+        id += '-page';
+        $('body').attr('id', id);
+
+        var buttonid = $(this).attr('id');
+        var bodyid = $('body').attr('id');
+
+        if (buttonid == 'video') {
+            $('#info').fadeOut(500, function () {
+                $('#info').text('');
+                $('#info').fadeIn();
             });
-        });
+        }
+
+        if (getCookie('previous-page') == bodyid) {
+            if ($('#info').text()) {
+                $('#info').fadeOut(500, function () {
+                    $( '#info' ).text('');
+                    $('#info').fadeIn();
+                });
+            } else {
+                if (!(bodyid == 'video-page' && $('#canvas').text())) {
+                    var $classname = (this.className == 'dynamic media') ? '#canvas' : '#info';
+                    $($classname).fadeOut(500, function () {
+                        $($classname).load(event.target.id+'.php', {limit: 25}, function(){
+                                $($classname).fadeIn();
+                        });
+                        setCookie('previous-page', bodyid);
+                    });
+                }
+                if (bodyid == 'video-page' && $('#canvas').text()) {
+                    var $classname = (this.className == 'dynamic media') ? '#canvas' : '#info';
+                    $($classname).fadeOut(500, function () {
+                        var myVideo=document.getElementById("vid");
+                        myVideo.pause();
+                        $('#canvas').text('');
+                    });
+                }
+            }
+        } else {
+            var $classname = (this.className == 'dynamic media') ? '#canvas' : '#info';
+            $($classname).fadeOut(500, function () {
+                $($classname).load(event.target.id+'.php', {limit: 25}, function(){
+                    $($classname).fadeIn();
+                });
+                setCookie('previous-page', bodyid);
+            });
+        }
     });
 
-	
+
     // Scroller Testing Code /////////////////////////////
 
     //this is the useful function to scroll a text inside an element...
