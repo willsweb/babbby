@@ -18,7 +18,7 @@ include 'lib/functions.php';
 <body>
 
     <div id="menu">
-        <span id="events" class="dynamic"></span>
+        <span id="events" class="dynamic" alt=""></span>
         <span id="contact" class="dynamic"></span>
         <span id="press" class="dynamic"></span>
         <span id="products" class="dynamic"></span>
@@ -26,16 +26,17 @@ include 'lib/functions.php';
 
     <div id='content'>
         <div id='stage'>
-            <div id='canvas'></div>
-            <button id="video" class="dynamic">
+            <div id='canvas' class='content'></div>
+            <div id='info' class='content'></div>
+            <button id="video" class="dynamic media">
                 <img src="img/video.png"  />
             </button>
-            <button id="audio"  class="dynamic">
+            <button id="audio"  class="dynamic media">
                 <img src="img/audio.png"  />
             </button>
         </div>
     </div>
-
+<!--
     <div id="scroller">
         <span id="static-text">This text won't move</span>
         <div class="scrollingtext">
@@ -55,6 +56,6 @@ include 'lib/functions.php';
             </span>
         </div>
     </div>  
-
+-->
 </body>
 </html>
