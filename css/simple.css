@@ -107,7 +107,20 @@
     top: 170px;
     width:320px;
     height:240px;
+    
+    z-index:100;
 }
+
+#info {
+    height: 240px;
+    left: 124px;
+    position: absolute;
+    top: 140px;
+    width: 340px;
+    z-index: 100;
+    overflow-y: auto;
+}
+
 
 #canvascover {
     position:absolute;
@@ -182,4 +195,8 @@
     background-color: #00b6ff;
     z-index: 99999;
     font-weight: bold;
+}
+
+p {
+    font-size:0.8em;
 }
