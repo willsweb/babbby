@@ -38,7 +38,7 @@ include 'lib/functions.php';
     </div>
 
     <div id="scroller">
-        <span id="static-text">This text has changed</span>
+        <span id="static-text">This text has changed again and again</span>
         <div class="scrollingtext">
             <span class="review">
                 <span class="message">
