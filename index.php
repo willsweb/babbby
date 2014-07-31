@@ -36,7 +36,7 @@ include 'lib/functions.php';
             </button>
         </div>
     </div>
-<!--
+
     <div id="scroller">
         <span id="static-text">This text won't move</span>
         <div class="scrollingtext">
@@ -56,6 +56,6 @@ include 'lib/functions.php';
             </span>
         </div>
     </div>  
--->
+
 </body>
 </html>
