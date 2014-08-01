@@ -56,7 +56,7 @@ $(document).ready(function(){
         } else {
             var $classname = (this.className == 'dynamic media') ? '#canvas' : '#info';
             $($classname).fadeOut(500, function () {
-                $($classname).load(event.target.id+'.php', {limit: 25}, function(){
+                $($classname).load('info/'+event.target.id+'.html', {limit: 25}, function(){
                     $($classname).fadeIn();
                 });
                 setCookie('previous-page', bodyid);
