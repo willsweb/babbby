@@ -12,57 +12,54 @@ function getCookie(key) {
 
 $(document).ready(function(){
 
+
+    // when one of the buttons is clicked
     $('.dynamic').click(function(event){
 
+        // set the body id to the name of the button
         var id = $(this).attr('id');
         id += '-page';
         $('body').attr('id', id);
 
-        var buttonid = $(this).attr('id');
-        var bodyid = $('body').attr('id');
+        // setting variables
+        var buttonid = $(this).attr('id');  // the button you clicked
+        var bodyid = $('body').attr('id'); // the page you are on
 
-        if (buttonid == 'video') {
-            $('#info').fadeOut(500, function () {
-                $('#info').text('');
-                $('#info').fadeIn();
-            });
+        switch (buttonid) {
+            case 'audio':
+            case 'video':
+                var idname = '#canvas';
+                var filename = buttonid+'.php'
+                break;
+            default:
+                var idname = '#info';
+                var filename = 'info/'+buttonid+'.html'
         }
 
-        if (getCookie('previous-page') == bodyid) {
-            if ($('#info').text()) {
-                $('#info').fadeOut(500, function () {
-                    $( '#info' ).text('');
-                    $('#info').fadeIn();
+        if ($(idname).text()) {
+            $(idname).fadeOut(500, function () {
+                $(idname).text('');
+            });
+
+        }
+
+        if (getCookie('previous-page') != buttonid) {
+            $(idname).fadeOut(500, function () {
+                $(idname).load(filename, {limit: 25}, function(){
+                    $(idname).fadeIn();
                 });
-            } else {
-                if (!(bodyid == 'video-page' && $('#canvas').text())) {
-                    var $classname = (this.className == 'dynamic media') ? '#canvas' : '#info';
-                    $($classname).fadeOut(500, function () {
-                        $($classname).load(event.target.id+'.php', {limit: 25}, function(){
-                                $($classname).fadeIn();
-                        });
-                        setCookie('previous-page', bodyid);
-                    });
-                }
-                if (bodyid == 'video-page' && $('#canvas').text()) {
-                    var $classname = (this.className == 'dynamic media') ? '#canvas' : '#info';
-                    $($classname).fadeOut(500, function () {
-                        var myVideo=document.getElementById("vid");
-                        myVideo.pause();
-                        $('#canvas').text('');
-                    });
-                }
-            }
-        } else {
-            var $classname = (this.className == 'dynamic media') ? '#canvas' : '#info';
-            $($classname).fadeOut(500, function () {
-                $($classname).load(event.target.id+'.php', {limit: 25}, function(){
-                    $($classname).fadeIn();
-                });
-                setCookie('previous-page', bodyid);
+                setCookie('previous-page', buttonid);
             });
         }
     });
+
+
+
+
+
+
+
+
 
 
     // Scroller Testing Code /////////////////////////////
