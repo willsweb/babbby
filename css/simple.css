@@ -115,9 +115,9 @@
     top: 0;
     left: 0;
     width: 568px;
-    background-color: rgba(100, 0, 51, 0.4);
-    border-radius: 25px;
-    color: #FFFFFF;
+    // background-color: rgba(100, 0, 51, 0.4);
+    // border-radius: 25px;
+    color: #000000;
     font-size: 120%;
     height: auto;
     display: none;
