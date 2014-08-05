@@ -2,6 +2,8 @@
 
 /**
  * Returns random hex colour code
+ * Minimun value 0
+ * Maximum value 255
  *
  * @param array $selection predefined selection of colours to choose from
  * @return string
@@ -13,9 +15,30 @@ function random_colour($selection=array()) {
     }
 
     $colour = '';
-    $levels = array(255, 255, 255);
-    for ($i = 0; $i < 3; $i++) {
-        $colour .= str_pad(dechex(mt_rand(0, $levels[$i])), 2, '0', STR_PAD_LEFT);
+
+    $red = array(
+        'min' => 100,
+        'max' => 255
+    );
+
+    $green = array(
+        'min' => 100,
+        'max' => 255
+    );
+
+    $blue = array(
+        'min' => 100,
+        'max' => 255
+    );
+
+    $levels = array(
+        $red,
+        $green,
+        $blue
+    );
+
+    foreach ($levels as $level) {
+        $colour .= str_pad(dechex(rand($level['min'], $level['max'])), 2, '0', STR_PAD_LEFT);
     }
 
     return $colour;
