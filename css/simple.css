@@ -13,28 +13,28 @@
 
 /*********************LINKS***********************/
 
-#events {
+#menu span#events {
     background: url("../img/events.png") no-repeat scroll 0 0 transparent;
     height: 50px;
-    width: 130px;
+    // width: 130px;
 }
 
-#contact {
+#menu span#contact {
     background: url("../img/contact.png") no-repeat scroll 0 0 transparent;
     height: 50px;
-    width: 110px;
+    // width: 110px;
 }
 
-#press {
+#menu span#press {
     background: url("../img/press.png") no-repeat scroll 0 0 transparent;
     height: 60px;
-    width: 80px;
+    // width: 80px;
 }
 
-#products {
+#menu span#products {
     background: url("../img/products.png") no-repeat scroll 0 0 transparent;
     height: 57px;
-    width: 142px;
+    /// width: 142px;
 }
 
 /*********************MENU************************/
