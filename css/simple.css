@@ -15,26 +15,26 @@
 
 #menu span#events {
     background: url("../img/events.png") no-repeat scroll 0 0 transparent;
-    height: 50px;
-    // width: 130px;
+    height: 80px;
+    width: 185px;
 }
 
 #menu span#contact {
     background: url("../img/contact.png") no-repeat scroll 0 0 transparent;
-    height: 50px;
-    // width: 110px;
+    height: 55px;
+    width: 175px;
 }
 
 #menu span#press {
     background: url("../img/press.png") no-repeat scroll 0 0 transparent;
     height: 60px;
-    // width: 80px;
+    width: 115px;
 }
 
 #menu span#products {
     background: url("../img/products.png") no-repeat scroll 0 0 transparent;
-    height: 57px;
-    /// width: 142px;
+    height: 64px;
+    width: 160px;
 }
 
 /*********************MENU************************/
@@ -71,7 +71,7 @@
     font-family:arial, sans-serif;
     font-size:11px;
     line-height:900px;
-    width:160px;
+    // width:160px;
     text-decoration:none;
     text-align:center;
     cursor:pointer;
