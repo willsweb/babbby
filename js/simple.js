@@ -12,6 +12,12 @@ function getCookie(key) {
 
 $(document).ready(function(){
 
+    $('#close').click(function(event){
+        // Show popup, hide main 'stage' image
+        $('#popup').fadeOut(500);
+        $('#info').text('');
+        $('#stage').css('visibility', 'visible');
+    });
 
     // when one of the buttons is clicked
     $('.dynamic').click(function(event){
@@ -24,6 +30,12 @@ $(document).ready(function(){
         // setting variables
         var buttonid = $(this).attr('id');  // the button you clicked
         var bodyid = $('body').attr('id'); // the page you are on
+
+        if (buttonid != 'video' && buttonid != 'audio') {
+            // Show popup, hide main 'stage' image
+            $('#popup').fadeIn(500);
+            $('#stage').css('visibility', 'hidden');
+        }
 
         switch (buttonid) {
             case 'audio':
@@ -39,8 +51,17 @@ $(document).ready(function(){
         if ($(idname).text()) {
             $(idname).fadeOut(500, function () {
                 $(idname).text('');
-            });
+                if (getCookie('previous-page') == buttonid) {
+                    $('#popup').fadeOut(500);
+                    $('#stage').css('visibility', 'visible');
+                }
 
+            });
+        } else {
+            $(idname).load(filename, {limit: 25}, function(){
+                $(idname).fadeIn();
+            });
+            setCookie('previous-page', buttonid);
         }
 
         if (getCookie('previous-page') != buttonid) {

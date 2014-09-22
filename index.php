@@ -1,8 +1,4 @@
 <?php
-
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
 include 'lib/functions.php';
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
@@ -25,9 +21,12 @@ include 'lib/functions.php';
     </div>
 
     <div id='content'>
+        <div id="popup">
+            <img id='close' src='img/close.png'/>
+            <div id='info' class='content'></div>
+        </div>
         <div id='stage'>
             <div id='canvas' class='content'></div>
-            <div id='info' class='content'></div>
             <button id="video" class="dynamic media">
                 <img src="img/video.png"  />
             </button>
