@@ -12,7 +12,6 @@ function getCookie(key) {
 
 $(document).ready(function(){
 
-
     // when one of the buttons is clicked
     $('.dynamic').click(function(event){
 
@@ -45,8 +44,17 @@ $(document).ready(function(){
         if ($(idname).text()) {
             $(idname).fadeOut(500, function () {
                 $(idname).text('');
-            });
+                if (getCookie('previous-page') == buttonid) {
+                    $('#popup').fadeOut(500);
+                    $('#stage').css('visibility', 'visible');
+                }
 
+            });
+        } else {
+            $(idname).load(filename, {limit: 25}, function(){
+                $(idname).fadeIn();
+            });
+            setCookie('previous-page', buttonid);
         }
 
         if (getCookie('previous-page') != buttonid) {
