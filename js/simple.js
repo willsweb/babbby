@@ -25,6 +25,12 @@ $(document).ready(function(){
         var buttonid = $(this).attr('id');  // the button you clicked
         var bodyid = $('body').attr('id'); // the page you are on
 
+        if (buttonid != 'video' && buttonid != 'audio') {
+            // Show popup, hide main 'stage' image
+            $('#popup').fadeIn(500);
+            $('#stage').css('visibility', 'hidden');
+        }
+
         switch (buttonid) {
             case 'audio':
             case 'video':
