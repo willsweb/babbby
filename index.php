@@ -25,9 +25,11 @@ include 'lib/functions.php';
     </div>
 
     <div id='content'>
+        <div id="popup">
+            <div id='info' class='content'></div>
+        </div>
         <div id='stage'>
             <div id='canvas' class='content'></div>
-            <div id='info' class='content'></div>
             <button id="video" class="dynamic media">
                 <img src="img/video.png"  />
             </button>
