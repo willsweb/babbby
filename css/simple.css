@@ -109,6 +109,13 @@
     display:none;
 }
 
+img#close {
+    position:absolute;
+    left: 375px;
+    top: 100px;
+    cursor:pointer;
+}
+
 #stage {
     background-image: url("../img/radio_small.png");
     height: 528px;

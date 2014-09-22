@@ -22,6 +22,7 @@ include 'lib/functions.php';
 
     <div id='content'>
         <div id="popup">
+            <img id='close' src='img/close.png'/>
             <div id='info' class='content'></div>
         </div>
         <div id='stage'>
