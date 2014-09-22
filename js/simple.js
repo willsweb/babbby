@@ -12,6 +12,13 @@ function getCookie(key) {
 
 $(document).ready(function(){
 
+    $('#close').click(function(event){
+        // Show popup, hide main 'stage' image
+        $('#popup').fadeOut(500);
+        $('#info').text('');
+        $('#stage').css('visibility', 'visible');
+    });
+
     // when one of the buttons is clicked
     $('.dynamic').click(function(event){
 
