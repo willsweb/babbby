@@ -185,23 +185,24 @@ img#close {
 /*********************TESTING***********************/
 
 #scroller {
-    background-color: #00b6ff;
-    color: #ffffff;
-    font-size: 14px;
-    height: 28px !important;
-    line-height:28px;
+    clear: both;
+    height: 40px !important;
+    line-height: 40px;
     overflow: hidden;
-    position: relative;
-    width: 1005;
     padding-top: 1px;
     position: relative;
+    top: 400px;
+    z-index: 5;
+    left: 125px;
+    top: 425px;
+    width: 550px;
 }
 .scrollingtext {
-    color: #ffffff;
-    white-space:nowrap;
-    position:absolute;
-    font-size: 14px;
+    color: #000;
+    font-size: 2em;
     font-style: oblique;
+    position: absolute;
+    white-space: nowrap;   
 }
 .scrollingtext a:link, .scrollingtext a:visited {
     color: #ffffff;
@@ -213,14 +214,6 @@ img#close {
 
 .review {
     padding-right: 50px;
-}
-
-#static-text {
-    position: absolute;
-    padding: 0 10px;
-    background-color: #00b6ff;
-    z-index: 99999;
-    font-weight: bold;
 }
 
 p {

@@ -21,12 +21,20 @@ include 'lib/functions.php';
     </div>
 
     <div id='content'>
+
         <div id="popup">
             <img id='close' src='img/close.png'/>
             <div id='info' class='content'></div>
         </div>
+
+        <div id="scroller">
+            <div class="scrollingtext">blah blah blah</div>
+        </div>
+
         <div id='stage'>
+
             <div id='canvas' class='content'></div>
+
             <button id="video" class="dynamic media">
                 <img src="img/video.png"  />
             </button>
@@ -34,27 +42,8 @@ include 'lib/functions.php';
                 <img src="img/audio.png"  />
             </button>
         </div>
+
     </div>
-<!--
-    <div id="scroller">
-        <span id="static-text">This text has changed again and again</span>
-        <div class="scrollingtext">
-            <span class="review">
-                <span class="message">
-                    <a href="#">'Scrolling Text'</a>
-                </span> -
-                <span class="forename">Extra info</span>,
-                <span class="location">Location</span>
-            </span>
-            <span class="review">
-                <span class="message">
-                    <a href="#">'More Scrolling Text'</a>
-                </span> -
-                <span class="forename">More Extra info</span>,
-                <span class="location">Another Location</span>
-            </span>
-        </div>
-    </div>  
--->
+
 </body>
 </html>
