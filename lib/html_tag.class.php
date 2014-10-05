@@ -17,22 +17,24 @@ class html_tag {
     function __construct($type) {
 
         $this->type = strtolower($type);
-        $this->voidelements = array('area',
-                                    'base',
-                                    'br',
-                                    'col',
-                                    'command',
-                                    'embed',
-                                    'hr',
-                                    'img',
-                                    'input',
-                                    'keygen',
-                                    'link',
-                                    'meta',
-                                    'param',
-                                    'source',
-                                    'track',
-                                    'wbr');
+        $this->voidelements = array(
+            'area',
+            'base',
+            'br',
+            'col',
+            'command',
+            'embed',
+            'hr',
+            'img',
+            'input',
+            'keygen',
+            'link',
+            'meta',
+            'param',
+            'source',
+            'track',
+            'wbr'
+        );
     }
 
     /**

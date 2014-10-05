@@ -28,7 +28,7 @@ include 'lib/functions.php';
         </div>
 
         <div id="scroller">
-            <div class="scrollingtext">blah blah blah</div>
+            <div class="scrollingtext"></div>
         </div>
 
         <div id='stage'>

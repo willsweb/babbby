@@ -9,22 +9,68 @@ function getCookie(key) {
     return keyValue ? keyValue[2] : null;
 }
 
-function startScrolling(scroller_obj, velocity, start_from) {
+function isset() {
+    //  discuss at: http://phpjs.org/functions/isset/
+    // original by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
+    // improved by: FremyCompany
+    // improved by: Onno Marsman
+    // improved by: Rafał Kukawski
+    //   example 1: isset( undefined, true);
+    //   returns 1: false
+    //   example 2: isset( 'Kevin van Zonneveld' );
+    //   returns 2: true
+
+    var a = arguments,
+        l = a.length,
+        i = 0,
+        undef;
+
+    if (l === 0) {
+        throw new Error('Empty isset');
+    }
+
+    while (i !== l) {
+        if (a[i] === undef || a[i] === null) {
+            return false;
+        }
+        i++;
+    }
+    return true;
+}
+
+$(document).ready(function(){
+
+    $('#close').click(function(event){
+        // Show popup, hide main 'stage' image
+        $('#popup').fadeOut(500);
+        $('#info').text('');
+        $('#stage').css('visibility', 'visible');
+    });
+
+    //settings to pass to function
+    var scroller_obj = $('.scrollingtext'); // element(s) to scroll
+    var velocity = 90; // 1-99
+    var start_from = 'right'; // 'right' or 'left'
+
     //bind animation  inside the scroller element
     scroller_obj.bind('marquee', function (event, c) {
+
         //text to scroll
         var ob = $(this);
+
         //scroller width
         var sw = parseInt(ob.parent().width());
 
         //text width
         var tw = parseInt(ob.width());
-
         tw = tw - 10;
+
         //text left position relative to the offset parent
         var tl = parseInt(ob.position().left);
+
         //velocity converted to calculate duration
         var v = velocity > 0 && velocity < 100 ? (100 - velocity) * 1000 : 5000;
+
         //same velocity for different text's length in relation with duration
         var dr = (v * tw / sw) + v;
 
@@ -54,6 +100,7 @@ function startScrolling(scroller_obj, velocity, start_from) {
                     sw += tl + tw;
                 };
         }
+
         //attach animation to scroller element and start it by a trigger
         ob.animate({
             left: sw
@@ -79,30 +126,9 @@ function startScrolling(scroller_obj, velocity, start_from) {
                 };
             }
         });
-    }).trigger('marquee');
-    //pause scrolling animation on mouse over
-    scroller_obj.mouseover(function () {
-        $(this).stop();
     });
-    //resume scrolling animation on mouse out
-    scroller_obj.mouseout(function () {
-        $(this).trigger('marquee', ['resume']);
-    });
-};
 
-$(document).ready(function(){
-
-    //settings to pass to function
-    var scroller = $('.scrollingtext'); // element(s) to scroll
-    var scrolling_velocity = 90; // 1-99
-    var scrolling_from = 'right'; // 'right' or 'left'
-    
-    $('#close').click(function(event){
-        // Show popup, hide main 'stage' image
-        $('#popup').fadeOut(500);
-        $('#info').text('');
-        $('#stage').css('visibility', 'visible');
-    });
+    scroller_obj.css('display', 'none');
 
     // when one of the buttons is clicked
     $('.dynamic').click(function(event){
@@ -124,40 +150,72 @@ $(document).ready(function(){
 
         switch (buttonid) {
             case 'audio':
+                var idname = '#canvas';
+                var filename = null;
+                break;
             case 'video':
                 var idname = '#canvas';
-                var filename = buttonid+'.php'
+                var filename = buttonid+'.php';
                 break;
             default:
                 var idname = '#info';
-                var filename = 'info/'+buttonid+'.html'
+                var filename = 'info/'+buttonid+'.html';
         }
 
         if ($(idname).text()) {
+            scroller_obj.stop();
+            scroller_obj.fadeOut(500);
             $(idname).fadeOut(500, function () {
                 $(idname).text('');
                 if (getCookie('previous-page') == buttonid) {
                     $('#popup').fadeOut(500);
                     $('#stage').css('visibility', 'visible');
                 }
-
             });
         } else {
-            $(idname).load(filename, {limit: 25}, function(){
-                $(idname).fadeIn();
-            });
+            if (buttonid == 'video') {
+                scroller_obj.stop();
+                scroller_obj.fadeOut(500);
+            }
+            if (buttonid == 'audio') {
+                $.getJSON('audio.php', function(data) {
+                    $(idname).html(data.html);
+                    $('.scrollingtext').text(data.scrollertext);
+                });
+                scroller_obj.css({
+                    left: (parseInt(scroller_obj.parent().width()) - 10)
+                });
+                scroller_obj.fadeIn(500);
+                scroller_obj.trigger('marquee', ['resume']);
+            } else {
+                if (isset(filename)) {
+                    $(idname).load(filename, {limit: 25}, function(){
+                        $(idname).fadeIn();
+                    });
+                }
+            }
             setCookie('previous-page', buttonid);
         }
 
         if (getCookie('previous-page') != buttonid) {
-            $(idname).fadeOut(500, function () {
-                $(idname).load(filename, {limit: 25}, function(){
-                    $(idname).fadeIn();
+            if (buttonid == 'audio') {
+                $.getJSON('audio.php', function(data) {
+                    $('#canvas').html(data.html);
+                    $('.scrollingtext').html(data.scrollertext);
                 });
-                setCookie('previous-page', buttonid);
-            });
+                scroller_obj.css({
+                    left: (parseInt(scroller_obj.parent().width()) - 10)
+                });
+                scroller_obj.fadeIn(500);
+                scroller_obj.trigger('marquee', ['resume']);
+            } else {
+                $(idname).fadeOut(500, function () {
+                    $(idname).load(filename, {limit: 25}, function(){
+                        $(idname).fadeIn();
+                    });
+                    setCookie('previous-page', buttonid);
+                });
+            }
         }
     });
-    
-    startScrolling(scroller, scrolling_velocity, scrolling_from);
 });
