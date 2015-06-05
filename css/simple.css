@@ -14,42 +14,37 @@
 /*********************LINKS***********************/
 
 #menu span#events {
-    background: url("../img/events.png") no-repeat scroll 0 0 transparent;
-    height: 80px;
-    width: 164px;
+     background: transparent url("../img/events.png") no-repeat scroll 0 0 / 100% auto;
+    height: 120px;
     margin-left: 18px;
-    // margin-top: 30px;
+    width: 250px;
 }
 
 #menu span#contact {
-    background: url("../img/contact.png") no-repeat scroll 0 0 transparent;
-    height: 55px;
-    width: 147px;
-    margin-left: 26px;
-    // margin-top: 30px;
+    background: transparent url("../img/contact.png") no-repeat scroll 0 0 / 100% auto;
+    height: 100px;
+    margin-left: 100px;
+    width: 227px;
 }
-
 #menu span#press {
-    background: url("../img/press.png") no-repeat scroll 0 0 transparent;
-    height: 60px;
-    width: 93px;
-    margin-left: 50px;
-    // margin-top: 30px;
+    background: transparent url("../img/press.png") no-repeat scroll 0 0 / 100% auto;
+    height: 100px;
+    margin-left: 120px;
+    width: 150px;
 }
 
 #menu span#products {
-    background: url("../img/products.png") no-repeat scroll 0 0 transparent;
-    height: 64px;
-    width: 167px;
-    margin-left: 40px;
-    // margin-top: 30px;
+    background: transparent url("../img/products.png") no-repeat scroll 0 0 / 100% auto;
+    height: 120px;
+    margin-left: 80px;
+    width: 250px;
 }
 
 /*********************MENU************************/
 
 #menu {
     list-style-type:none;
-    width:800px;
+    width:1220px; /* CHANGE THESE FOR MENU SPACING */
     margin:0 auto;
     padding:0;
 }
