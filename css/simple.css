@@ -217,3 +217,15 @@ img#close {
 p {
     font-size:0.8em;
 }
+
+/****** ALL CONTENT PAGES TEXT  ************/
+
+p.contenttext {
+    text-align: center;
+    font-size: 1.4em;
+    
+}
+
+p.contenttext a {
+    color: black;
+}
