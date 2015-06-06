@@ -74,7 +74,7 @@ function random_file($dir) {
         // todo: return the whole array?
 
         $randomfile = array_values($new)[0];
-        $basefilename = substr($randomfile, 0, strlen($string) - 4);
+        $basefilename = substr($randomfile, 0, strlen($string) - 5);
 
         return $dir . $basefilename;
     }
