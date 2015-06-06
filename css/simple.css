@@ -163,7 +163,7 @@ img#close {
     position: absolute;
     top: 420px;
     cursor:pointer;
-        background: none repeat scroll 0 0 #FFFFFF;
+    background: none repeat scroll 0 0 #FFFFFF;
     border: medium none;
 }
 
@@ -171,7 +171,8 @@ img#close {
     left: 224px;
     position: absolute;
     top: 420px;
-        background: none repeat scroll 0 0 #FFFFFF;
+    cursor:pointer;
+    background: none repeat scroll 0 0 #FFFFFF;
     border: medium none;
 }
 
