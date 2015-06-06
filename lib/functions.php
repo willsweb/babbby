@@ -71,10 +71,13 @@ function random_file($dir) {
             $new[$key] = $files[$key];
         }
 
-        // todo: return the whole array?
-
         $randomfile = array_values($new)[0];
-        $basefilename = substr($randomfile, 0, strlen($string) - 5);
+        $info = new SplFileInfo($randomfile);
+        $extension = $info->getExtension();
+        $basefilenamelength = strlen($randomfile) - strlen($extension) - 1;
+        $basefilename = substr($randomfile, 0, $basefilenamelength);
+        $basefilename = str_replace('.oggtheora', '', $basefilename);
+        $basefilename = str_replace('.webmhd', '', $basefilename);
 
         return $dir . $basefilename;
     }
