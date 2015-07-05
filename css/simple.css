@@ -241,3 +241,8 @@ p.contenttext {
 p.contenttext a {
     color: black;
 }
+
+/** HIDE PLAYLIST **/
+#playlist {
+    visibility: hidden;
+}
