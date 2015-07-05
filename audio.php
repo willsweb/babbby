@@ -22,7 +22,7 @@ if ($album) {
     $scrollertext .= ' - ' . $album;
 }
 if ($comments) {
-    $scrollertext .= ' - ' . $comments;
+    //$scrollertext .= ' - ' . $comments;
 }
 
 $html = "<audio id='audiodiv' autoplay='autoplay'>";
