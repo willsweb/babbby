@@ -50,7 +50,7 @@ function random_colour($selection=array()) {
  * @param string $dir Folder to pick a random file from
  * @return string
  */
-function random_file($dir) {
+function random_video($dir) {
 
     $files = array();
     $new = array();
@@ -75,19 +75,39 @@ function random_file($dir) {
         $info = new SplFileInfo($randomfile);
         $extension = $info->getExtension();
 
-        switch ($extension) {
-            case 'mp3':
-                return $dir . $randomfile;
-            case 'mp4':
-            case 'webm':
-            case 'ogv':
-                $basefilenamelength = strlen($randomfile) - strlen($extension) - 1;
-                $basefilename = substr($randomfile, 0, $basefilenamelength);
-                $basefilename = str_replace('.oggtheora', '', $basefilename);
-                $basefilename = str_replace('.webmhd', '', $basefilename);
-            return $dir . $basefilename;
-        }
+        $basefilenamelength = strlen($randomfile) - strlen($extension) - 1;
+        $basefilename = substr($randomfile, 0, $basefilenamelength);
+        $basefilename = str_replace('.oggtheora', '', $basefilename);
+        $basefilename = str_replace('.webmhd', '', $basefilename);
+        return $dir . $basefilename;
     }
+}
+
+/**
+ * Returns random playlist from the audio folder
+ *
+ * @return array
+ */
+function random_audio_playlist() {
+
+    $playlist = array();
+
+    if ($dh = opendir('audio/')) {
+        while (($file = readdir($dh)) !== false) {
+            if ($file != '.' && $file != '..' && $file != '.keep' && $file != '.DS_Store') {
+                $files[] = $file;
+            }
+        }
+        closedir($dh);
+    }
+
+    $keys = array_keys($files);
+    shuffle($keys);
+    foreach($keys as $key) {
+        $playlist[$key] = $files[$key];
+    }
+
+    return $playlist;
 }
 
 /**
