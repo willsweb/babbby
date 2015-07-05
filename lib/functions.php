@@ -45,9 +45,9 @@ function random_colour($selection=array()) {
 }
 
 /**
- * Returns random filename from /video folder
+ * Returns random filename from the passed folder
  *
- * @param string directory to pick a random file from
+ * @param string $dir Folder to pick a random file from
  * @return string
  */
 function random_file($dir) {
@@ -58,7 +58,7 @@ function random_file($dir) {
     if (is_dir($dir)) {
         if ($dh = opendir($dir)) {
             while (($file = readdir($dh)) !== false) {
-                if ($file != '.' && $file != '..' && $file != '.keep') {
+                if ($file != '.' && $file != '..' && $file != '.keep' && $file != '.DS_Store') {
                     $files[] = $file;
                 }
             }
@@ -74,12 +74,19 @@ function random_file($dir) {
         $randomfile = array_values($new)[0];
         $info = new SplFileInfo($randomfile);
         $extension = $info->getExtension();
-        $basefilenamelength = strlen($randomfile) - strlen($extension) - 1;
-        $basefilename = substr($randomfile, 0, $basefilenamelength);
-        $basefilename = str_replace('.oggtheora', '', $basefilename);
-        $basefilename = str_replace('.webmhd', '', $basefilename);
 
-        return $dir . $basefilename;
+        switch ($extension) {
+            case 'mp3':
+                return $dir . $randomfile;
+            case 'mp4':
+            case 'webm':
+            case 'ogv':
+                $basefilenamelength = strlen($randomfile) - strlen($extension) - 1;
+                $basefilename = substr($randomfile, 0, $basefilenamelength);
+                $basefilename = str_replace('.oggtheora', '', $basefilename);
+                $basefilename = str_replace('.webmhd', '', $basefilename);
+            return $dir . $basefilename;
+        }
     }
 }
 
