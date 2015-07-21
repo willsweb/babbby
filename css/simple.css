@@ -246,3 +246,11 @@ p.contenttext a {
 #playlist {
     visibility: hidden;
 }
+
+/** PRODUCTS PAGE LAYOUT */
+.ui-tabs-vertical { width: 800px; }
+.ui-tabs-vertical .ui-tabs-nav { float: left; width: 200px; }
+.ui-tabs-vertical .ui-tabs-nav li { clear: left; width: 100%;  }
+.ui-tabs-vertical .ui-tabs-nav li a { display:block; }
+.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active {  }
+.ui-tabs-vertical .ui-tabs-panel { float: right; width: 600px;}
