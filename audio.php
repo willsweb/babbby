@@ -3,7 +3,6 @@
 header('Content-type: application/json');
 
 include 'lib/functions.php';
-include 'lib/id3tagreader.php';
 
 /*
 $tagreader = new ID3TagsReader();

@@ -1,5 +1,7 @@
 <?php
 
+include 'id3tagreader.php';
+
 /**
  * Returns random hex colour code
  * Minimun value 0
