@@ -87,16 +87,21 @@ function random_video($dir) {
 
 /**
  * Returns random playlist from the audio folder
+ * as an array which details the filename and text comprising the mp3 id tags
  *
  * @return array
  */
-function random_audio_playlist() {
+function random_audio_playlist($dir='') {
 
     $playlist = array();
+    $files = array();
 
-    if ($dh = opendir('audio/')) {
-        while (($file = readdir($dh)) !== false) {
-            if ($file != '.' && $file != '..' && $file != '.keep' && $file != '.DS_Store') {
+    if ($dh = opendir("$dir/")) {
+        while (($filename = readdir($dh)) !== false) {
+            if ($filename != '.' && $filename != '..' && $filename != '.keep' && $filename != '.DS_Store') {
+                $file = array();
+                $file['filename'] = $dir . '/' . $filename;
+                $file['id3tagtext'] = getid3tags($dir . '/' . $filename);
                 $files[] = $file;
             }
         }
@@ -110,6 +115,36 @@ function random_audio_playlist() {
     }
 
     return $playlist;
+}
+
+/**
+ * Returns MP3 ID tags from passed mp3 file
+ *
+ * @param $file mp3 filename including path
+ * @return string comprising title and album text from the mp3 id3 tags
+ */
+function getid3tags($file) {
+
+    $tagreader = new ID3TagsReader();
+    $tags = $tagreader->getTagsInfo($file);
+
+    $title = (isset($tags['Title'])) ? $tags['Title'] : null;
+    $album = (isset($tags['Album'])) ? $tags['Album'] : null;
+    $comments = (isset($tags['Comments'])) ? $tags['Comments'] : null;
+
+    $scrollertext = '';
+    if ($title) {
+        $scrollertext .= $title;
+    }
+    if ($album) {
+        $scrollertext .= ' - ' . $album;
+    }
+    if ($comments) {
+        // Uncomment the line below to add the comments from the MP3 ID3 tags
+        //$scrollertext .= ' - ' . $comments;
+    }
+
+    return $scrollertext;
 }
 
 /**
