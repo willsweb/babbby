@@ -82,7 +82,7 @@ a:active {
 }
 
 #menu span.sub {
-    background:#f80;
+    background:#000000;
 }
 
 #menu span,#menu span a {
@@ -137,9 +137,9 @@ img#close {
 }
 
 #canvas {
-    left: 124px;
+    left: 143px;
     position: absolute;
-    top: 160px;
+    top: 147px;
     width:320px;
     height:240px;
     
@@ -177,7 +177,7 @@ img#close {
 #video {
     left: 324px;
     position: absolute;
-    top: 420px;
+    top: 419px;
     cursor:pointer;
     background: none repeat scroll 0 0 #FFFFFF;
     border: medium none;
@@ -186,7 +186,7 @@ img#close {
 #audio {
     left: 224px;
     position: absolute;
-    top: 420px;
+    top: 413px;
     cursor:pointer;
     background: none repeat scroll 0 0 #FFFFFF;
     border: medium none;
@@ -204,7 +204,7 @@ img#close {
     top: 400px;
     z-index: 105;
     left: 125px;
-    top: 325px;
+    top: 307px;
     width: 550px;
 }
 .scrollingtext {
@@ -258,7 +258,7 @@ p.contenttext a {
     width: 175px;
     display: block;
     padding: 0px;
-    margin: 0px;
+    margin: 0 0 30px;
 }
 .ui-tabs-vertical .ui-tabs-nav li {
     clear: left;
@@ -289,4 +289,15 @@ p.contenttext a {
 
 #productsform {
     
+}
+
+.products-img {
+    float: left;
+}
+
+.products-list {
+    display: block;
+    height: 275px;
+    overflow: auto;
+    width: 200px;
 }
