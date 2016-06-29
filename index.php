@@ -9,7 +9,7 @@ include 'lib/functions.php';
     <script type='text/javascript' src='js/jquery-ui-1.11.4/jquery-ui.js'></script>
     <script type='text/javascript' src='js/simple.js'></script>
     <link href="css/simple.css" rel="stylesheet" type="text/css"/>
-    <title>Baby</title>
+    <title>Babyoid</title>
     <style>body {background-color: #<?php echo random_colour(); ?>;}</style>
 </head>
 <body>
